@@ -48,23 +48,23 @@ var handleKeyDown = function(event, params, modal) {
     }
   } else {
     if (keyCode === 13) {
-      if ($targetElement.tagName === 'INPUT') {
-        $targetElement = $okButton;
-        $okButton.focus();
-      }
+	  if (params.allowEnterConfirm) {
+        if ($targetElement.tagName === 'INPUT') {
+          $targetElement = $okButton;
+          $okButton.focus();
+        }
 
-      if (btnIndex === -1) {
-        // ENTER/SPACE clicked outside of a button.
-	    if (params.allowEnterConfirm) {
+        if (btnIndex === -1) {
+          // ENTER/SPACE clicked outside of a button.
 		  $targetElement = $okButton;
 		  fireClick($targetElement, e);
-		} else {
-          $targetElement = $okButton;
-		}
-      } else {
-        // Do nothing - let the browser handle it.
-        $targetElement = undefined;
-      }
+        } else {
+          // Do nothing - let the browser handle it.
+          $targetElement = undefined;
+        }
+	  } else {
+        $targetElement = $okButton;
+	  }
     } else if (keyCode === 27 && params.allowEscapeKey === true) {
       $targetElement = $cancelButton;
       fireClick($targetElement, e);
