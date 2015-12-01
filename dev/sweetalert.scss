@@ -21,6 +21,18 @@ body.stop-scrolling {
 
   display: none;
   z-index: 10000;
+
+  opacity: 0;
+
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+
+  &.showSweetAlertOverlay {
+    opacity: 1;
+  }
 }
 
 .sweet-alert {
@@ -43,6 +55,14 @@ body.stop-scrolling {
   overflow: hidden;
   display: none;
   z-index: 99999;
+
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+
+  opacity: 0;
 
   @media all and (max-width: 540px) {
     width: auto;
@@ -574,6 +594,7 @@ body.stop-scrolling {
 }
 
 .showSweetAlert {
+  opacity: 1;
   &[data-animation=pop] {
     @include animation('showSweetAlert 0.3s');
   }

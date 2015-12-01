@@ -128,6 +128,7 @@ sweetAlert = swal = function() {
   setParameters(params);
   fixVerticalPosition();
   openModal(arguments[1]);
+  iCloser	= -1;
 
   // Modal interactions
   var modal = getModal();
@@ -166,7 +167,7 @@ sweetAlert = swal = function() {
       }
     }, 0);
   };
-  
+
   // Show alert with enabled buttons always
   swal.enableButtons();
 };
@@ -189,17 +190,27 @@ sweetAlert.setDefaults = swal.setDefaults = function(userParams) {
 };
 
 
+var iCloser	= -1;
 /*
  * Animation when closing modal
  */
 sweetAlert.close = swal.close = function() {
   var modal = getModal();
+  var overlay = getOverlay();
 
-  fadeOut(getOverlay(), 5);
-  fadeOut(modal, 5);
+  var thisCloser	= Date.now();
+  iCloser	= thisCloser;
+
+  removeClass(overlay, 'showSweetAlertOverlay');
   removeClass(modal, 'showSweetAlert');
   addClass(modal, 'hideSweetAlert');
   removeClass(modal, 'visible');
+  setTimeout(function () {
+    if(!hasClass(modal, 'showSweetAlert') && iCloser === thisCloser) {
+      modal.style.display	= 'none';
+      overlay.style.display = 'none';
+    }
+  }, 200);
 
   /*
    * Reset icon animations

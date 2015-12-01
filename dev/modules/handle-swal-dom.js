@@ -64,8 +64,9 @@ var setFocusStyle = function($button, bgColor) {
  */
 var openModal = function(callback) {
   var $modal = getModal();
-  fadeIn(getOverlay(), 10);
+  var overlay = getOverlay();
   show($modal);
+  addClass(overlay, 'showSweetAlertOverlay');
   addClass($modal, 'showSweetAlert');
   removeClass($modal, 'hideSweetAlert');
 
@@ -83,7 +84,7 @@ var openModal = function(callback) {
     var timerCallback = callback;
     $modal.timeout = setTimeout(function() {
       var doneFunctionExists = ((timerCallback || null) && $modal.getAttribute('data-has-done-function') === 'true');
-      if (doneFunctionExists) { 
+      if (doneFunctionExists) {
         timerCallback(null);
       }
       else {
@@ -135,7 +136,7 @@ var fixVerticalPosition = function() {
 };
 
 
-export { 
+export {
   sweetAlertInitialize,
   getModal,
   getOverlay,

@@ -14,7 +14,15 @@ body.stop-scrolling {
   top: 0;
   bottom: 0;
   display: none;
-  z-index: 10000; }
+  z-index: 10000;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s; }
+  .sweet-overlay.showSweetAlertOverlay {
+    opacity: 1; }
 
 .sweet-alert {
   background-color: white;
@@ -30,7 +38,13 @@ body.stop-scrolling {
   margin-top: -200px;
   overflow: hidden;
   display: none;
-  z-index: 99999; }
+  z-index: 99999;
+  -webkit-transition: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  opacity: 0; }
   @media all and (max-width: 540px) {
     .sweet-alert {
       width: auto;
@@ -488,21 +502,20 @@ body.stop-scrolling {
   100% {
     top: 70%; } }
 
-.showSweetAlert[data-animation=pop] {
-  -webkit-animation: showSweetAlert 0.3s;
-  animation: showSweetAlert 0.3s; }
-
-.showSweetAlert[data-animation=none] {
-  -webkit-animation: none;
-  animation: none; }
-
-.showSweetAlert[data-animation=slide-from-top] {
-  -webkit-animation: slideFromTop 0.3s;
-  animation: slideFromTop 0.3s; }
-
-.showSweetAlert[data-animation=slide-from-bottom] {
-  -webkit-animation: slideFromBottom 0.3s;
-  animation: slideFromBottom 0.3s; }
+.showSweetAlert {
+  opacity: 1; }
+  .showSweetAlert[data-animation=pop] {
+    -webkit-animation: showSweetAlert 0.3s;
+    animation: showSweetAlert 0.3s; }
+  .showSweetAlert[data-animation=none] {
+    -webkit-animation: none;
+    animation: none; }
+  .showSweetAlert[data-animation=slide-from-top] {
+    -webkit-animation: slideFromTop 0.3s;
+    animation: slideFromTop 0.3s; }
+  .showSweetAlert[data-animation=slide-from-bottom] {
+    -webkit-animation: slideFromBottom 0.3s;
+    animation: slideFromBottom 0.3s; }
 
 .hideSweetAlert[data-animation=pop] {
   -webkit-animation: hideSweetAlert 0.2s;
