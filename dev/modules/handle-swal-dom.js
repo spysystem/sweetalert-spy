@@ -65,6 +65,7 @@ var setFocusStyle = function($button, bgColor) {
 var openModal = function(callback) {
   var $modal = getModal();
   var overlay = getOverlay();
+  show(overlay);
   show($modal);
   addClass(overlay, 'showSweetAlertOverlay');
   addClass($modal, 'showSweetAlert');
