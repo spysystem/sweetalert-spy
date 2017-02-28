@@ -63,6 +63,7 @@ var handleKeyDown = function(event, params, modal) {
           $targetElement = undefined;
         }
 	  } else {
+	  	event.preventDefault();
         $targetElement = $okButton;
 	  }
     } else if (keyCode === 27 && params.allowEscapeKey === true) {
