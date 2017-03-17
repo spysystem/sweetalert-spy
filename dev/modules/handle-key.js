@@ -48,7 +48,7 @@ var handleKeyDown = function(event, params, modal) {
     }
   } else {
     if (keyCode === 13) {
-	  if (params.allowEnterConfirm) {
+      if (params.allowEnterConfirm) {
         if ($targetElement.tagName === 'INPUT') {
           $targetElement = $okButton;
           $okButton.focus();
@@ -56,14 +56,15 @@ var handleKeyDown = function(event, params, modal) {
 
         if (btnIndex === -1) {
           // ENTER/SPACE clicked outside of a button.
-		  $targetElement = $okButton;
-		  fireClick($targetElement, e);
+      	  	event.preventDefault();
+      	  	$targetElement = $okButton;
+      	  	fireClick($targetElement, e);
         } else {
           // Do nothing - let the browser handle it.
-          $targetElement = undefined;
+            $targetElement = undefined;
         }
-	  } else {
-	  	event.preventDefault();
+      } else {
+        event.preventDefault();
         $targetElement = $okButton;
 	  }
     } else if (keyCode === 27 && params.allowEscapeKey === true) {
