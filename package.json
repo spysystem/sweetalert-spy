@@ -1,6 +1,6 @@
 {
   "name": "@spysystem/sweetalert",
-  "version": "1.1.7",
+  "version": "1.1.9",
   "description": "A beautiful replacement for JavaScript's \"alert\"",
   "main": "dist/sweetalert.min.js",
   "directories": {

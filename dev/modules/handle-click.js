@@ -12,7 +12,7 @@ var handleButton = function(event, params, modal) {
 
   var targetedConfirm = target.className.indexOf('confirm') !== -1;
   var targetedOverlay = target.className.indexOf('sweet-overlay') !== -1;
-  var modalIsVisible  = hasClass(modal, 'visible');
+  var modalIsVisible  = hasClass(modal, 'showSweetAlert');
   var doneFunctionExists = (params.doneFunction && modal.getAttribute('data-has-done-function') === 'true');
 
   // Since the user can change the background-color of the confirm button programmatically,
